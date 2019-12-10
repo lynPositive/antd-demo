@@ -7,19 +7,23 @@ import * as serviceWorker from './serviceWorker';
 import {Provider,connect} from 'react-redux';
 import configureStore from './model/store/store';
 import {login} from './model/action/loginAction';
+import HomeContent from '../src/homeConent';
 
 const mapStateToprops = (state) =>{
+ // console.log('[][]][][]][]==>',state);
   return {
     user: state.user
   }
 }
-const CounterComponent = connect(mapStateToprops,{login})(NormalLoginForm);
+
+const CounterComponent = connect(mapStateToprops,{login})(NormalLoginForm,HomeContent);
 
 const store = configureStore().store;
 
 ReactDOM.render(
   //Provider 提供了状态 
   <Provider store={store}> 
+    {/* <CounterComponents/> */}
     <CounterComponent /> 
   </Provider>, 
   document.getElementById('root')

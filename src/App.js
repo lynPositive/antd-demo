@@ -13,7 +13,6 @@ class NormalLoginForm extends Component {
     this.state = {
       selectKey: 1,
     }
-    console.log('=============>',this);
   }
   // 点击登录
   handleSubmit = e => {
@@ -41,7 +40,6 @@ class NormalLoginForm extends Component {
   };
   //点击菜单时
   menuSelect = (select) => {
-    console.log(select);
     this.setState({
       selectKey: select.key
     });
@@ -76,10 +74,9 @@ class NormalLoginForm extends Component {
               <Breadcrumb.Item></Breadcrumb.Item>
             </Breadcrumb>
             <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>
-              {/* {this.state.selectKey} */}
               {
                 this.state.selectKey==1?
-                <HomeContent/>
+                <HomeContent token={this.props.user.token}/>
                  :
                 123
               }

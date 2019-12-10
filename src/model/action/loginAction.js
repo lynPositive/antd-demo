@@ -1,10 +1,9 @@
 import '../reducers/loginReducer'
 
 export const loginFunc = (user) =>{
-  console.log("action,action0000000000",user);
   return {
     type:"addLogin",
-    user
+    asd: user
   }
 }
 
@@ -13,6 +12,8 @@ export function  login(params) {
     dispatch(loginFunc(params))
   }
 }
+
+
 
 // export function login (user){
 //   return dispatch => {
