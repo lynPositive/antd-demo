@@ -7,8 +7,7 @@ import {LoginReducer } from './model/reducers/loginReducer';
 import ProfilePage from './wzt';
 import CommentListWithSubscription from './gj';
 import Welcome from './test';
-
-
+import ReactDom from 'react-dom';
 
  // 有状态组件
  class HomeContent extends Component {
@@ -19,6 +18,7 @@ import Welcome from './test';
       list:[],
       test:1
     }
+    this.handleClick = this.handleClick.bind(this);
   }
 
   // 在渲染前调用，在客户端也在服务端
@@ -36,6 +36,7 @@ import Welcome from './test';
   }
 
   getData(){
+    console.log(this.props.token);
     // fetch('http://192.168.0.04:8080/tms_v2/cartask/appList',{
     //   method:"get",
     //   query:{"limit":100, "offset": 10}, 
@@ -48,8 +49,17 @@ import Welcome from './test';
     //   }
     // }).catch(e=>console.log('eeeee',e));
   }
+  handleClick(){
+    this.refs.tip.style.color='red';
+    let span = document.getElementById('tips');
+    ReactDom.findDOMNode(span).style.color="orange";
+    this.props.clickDemo('22222');
+  }
   
   render() {
+    function  Welcomes() {
+      return <h1>函数式组件</h1>;
+    }
     var listRender = [];
     if(this.state.list.length!=0){
       let lists = this.state.list["items"];
@@ -75,7 +85,24 @@ import Welcome from './test';
         )
       }
     }
-    // 高阶函数：接受一个函数为参数，或者返回结果为函数的函数，就是一个高阶函数
+   
+    return (
+      <div>
+        {/* {Header(1)} */}
+        {/* {listRender} */}
+        {/* {withSubscription} */}
+        {/* <ProfilePage Function user={1}></ProfilePage> */}
+        {/* {CommentListWithSubscription} */}
+        <div ref="tip">{this.props.a}</div>
+        <span id="tips">span</span>
+        <div onClick={this.handleClick}>[][][][][][][]</div>
+        <Welcomes></Welcomes> {/* 调用函数式组件 */}
+      </div>
+    );
+  }
+}
+
+ // 高阶函数：接受一个函数为参数，或者返回结果为函数的函数，就是一个高阶函数
     // const greaterThan = (n) => {
     //   return (m) => m > n;
     // }
@@ -92,18 +119,6 @@ import Welcome from './test';
     // );
     
    // return <div>{listRender}</div>
-    return (
-      <div>
-        {/* {Header(1)} */}
-        {/* {listRender} */}
-        {/* {withSubscription} */}
-        {/* <ProfilePage Function user={1}></ProfilePage> */}
-        {/* {CommentListWithSubscription} */}
-        <Welcome></Welcome>
-      </div>
-    );
-  }
-}
 
 
 

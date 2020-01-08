@@ -5,6 +5,8 @@ import './App.css';
 import { login } from './model/action/loginAction';
 import storage from './model/storage';
 import HomeContent from '../src/homeConent';
+// import InformationList from '../src/informationList';
+import BoxInfo from '../src/inputBox';
 
 class NormalLoginForm extends Component {
 
@@ -19,7 +21,7 @@ class NormalLoginForm extends Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        fetch('http://192.168.0.212:8080/tms_v2/auth/login', {
+        fetch('http://47.96.91.107:8080/tms_v2/auth/login', {
           method: "post",
           body: JSON.stringify({
             "login": values.username,
@@ -43,6 +45,10 @@ class NormalLoginForm extends Component {
     this.setState({
       selectKey: select.key
     });
+  }
+  //
+  handleClick(a){
+    console.log(a);
   }
   render() {
     const { Header, Content, Footer } = Layout;
@@ -76,9 +82,9 @@ class NormalLoginForm extends Component {
             <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>
               {
                 this.state.selectKey==1?
-                <HomeContent token={this.props.user.token}/>
+                <BoxInfo></BoxInfo>
                  :
-                123
+                 <HomeContent token={this.props.user.token} a={1} clickDemo={this.handleClick.bind(this)}/>                
               }
             </div>
           </Content>
