@@ -3,29 +3,60 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import NormalLoginForm from './App';
 import * as serviceWorker from './serviceWorker';
-
 import {Provider,connect} from 'react-redux';
 import configureStore from './model/store/store';
 import {login} from './model/action/loginAction';
 import HomeContent from '../src/homeConent';
+import { HashRouter as Router, Link, Route } from 'react-router-dom';
+
 
 const mapStateToprops = (state) =>{
- // console.log('[][]][][]][]==>',state);
+//  console.log('mapStateToprops,[][]][][]][]==>',state);
   return {
-    user: state.user
+    user: state.LoginReducer.user
   }
 }
 
-const CounterComponent = connect(mapStateToprops,{login})(NormalLoginForm,HomeContent);
+const CounterComponent = connect(mapStateToprops,{login})(NormalLoginForm);
 
 const store = configureStore().store;
+const Home = () => (
+  <div>
+    <h2>Home</h2>
+  </div>
+)
+
+const About = () => (
+  <div>
+    <h2>About</h2>
+  </div>
+)
+
+const Product = () => (
+  <div>
+    <h2>Product</h2>
+  </div>
+)
 
 ReactDOM.render(
+
   //Provider 提供了状态 
   <Provider store={store}> 
     {/* <CounterComponents/> */}
     <CounterComponent /> 
-  </Provider>, 
+  </Provider>
+    // <Router>
+    //   <div className="App">
+    //     <Link to="/">Home</Link>
+    //     <Link to="/About">About</Link>
+    //     <Link to="/Product">Product</Link>
+    //     <hr/>
+    //     <Route path="/" exact component={HomeContent}></Route>
+    //     {/* <Route path="/about" component={About}></Route>
+    //     <Route path="/product" component={Product}></Route> */}
+    //   </div>
+    // </Router>
+  , 
   document.getElementById('root')
 );
 

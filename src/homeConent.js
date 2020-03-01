@@ -3,22 +3,28 @@ import { Button } from 'antd';
 import { Alert } from 'antd';
 import  './style/homeContent.css';
 import { format } from "path";
-import {LoginReducer } from './model/reducers/loginReducer';
+// import {LoginReducer } from './model/reducers/loginReducer';
 import ProfilePage from './wzt';
 import CommentListWithSubscription from './gj';
 import Welcome from './test';
 import ReactDom from 'react-dom';
+import  {demof} from '../src/model/functionC';
+import Atest from '../src/a';
+import Btest from '../src/b';
+
 
  // 有状态组件
  class HomeContent extends Component {
 
   constructor(props){
-    super(props);
+    super(props);    
     this.state ={
       list:[],
-      test:1
+      test:1,
+      atest:1
     }
     this.handleClick = this.handleClick.bind(this);
+    // this.Aclick = this.handleClick.bind(this);
   }
 
   // 在渲染前调用，在客户端也在服务端
@@ -28,7 +34,7 @@ import ReactDom from 'react-dom';
   }
 
   componentWillReceiveProps(nextProps){
-    console.log('nextPropsnextPropsnextPropsnextProps',nextProps);
+   // console.log('nextPropsnextPropsnextPropsnextProps',nextProps);
   }
 
   componentWillUpdate() {
@@ -55,7 +61,12 @@ import ReactDom from 'react-dom';
     ReactDom.findDOMNode(span).style.color="orange";
     this.props.clickDemo('22222');
   }
-  
+  Aclick= ()=>{
+    this.setState({
+      atest:2
+    });
+  }
+
   render() {
     function  Welcomes() {
       return <h1>函数式组件</h1>;
@@ -95,8 +106,13 @@ import ReactDom from 'react-dom';
         {/* {CommentListWithSubscription} */}
         <div ref="tip">{this.props.a}</div>
         <span id="tips">span</span>
+        {/* <span>{demof}</span> */}
         <div onClick={this.handleClick}>[][][][][][][]</div>
-        <Welcomes></Welcomes> {/* 调用函数式组件 */}
+        <div onClick={this.Aclick}>;;;;;;{this.state.atest}</div>
+        <Welcomes ></Welcomes> {/* 调用函数式组件 */}
+        <Atest></Atest>
+        <Btest></Btest>
+
       </div>
     );
   }

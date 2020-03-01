@@ -14,7 +14,6 @@ export function  login(params) {
 }
 
 
-
 // export function login (user){
 //   return dispatch => {
 //     dispatch(addLogin(user))

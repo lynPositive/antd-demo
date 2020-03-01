@@ -1,6 +1,6 @@
 
 import {createStore,applyMiddleware} from 'redux';
-import loginReducer from '../reducers/loginReducer';
+import reducer from '../reducers/index';
 import thunk from 'redux-thunk'; // npm i --save redux-thunk
 import {persistReducer,persistStore} from 'redux-persist'; // npm i redux-persist --save
 import storage from 'redux-persist/lib/storage';
@@ -10,7 +10,7 @@ const persistConfig = {
   storage,
 }
 
-const persisteReducer = persistReducer(persistConfig,loginReducer);
+const persisteReducer = persistReducer(persistConfig,reducer);
 
 export default()=>{
 	// createStore 可以接受整个应用的初始状态作为参数
