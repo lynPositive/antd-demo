@@ -11,7 +11,6 @@ import { HashRouter as Router, Link, Route } from 'react-router-dom';
 
 
 const mapStateToprops = (state) =>{
-//  console.log('mapStateToprops,[][]][][]][]==>',state);
   return {
     user: state.LoginReducer.user
   }

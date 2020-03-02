@@ -1,11 +1,6 @@
 import '../reducers/numberReducer';
 
-// export function setNumber (number){
-//   console.log('[]]]]],ssss',number);
-//   return dispatch =>{
-//     dispatch(setNumber(number));
-//   }
-// }
+
 
 export const setFunc = (number) =>{
   return {

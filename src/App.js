@@ -9,6 +9,11 @@ import HomeContent from '../src/homeConent';
 import BoxInfo from '../src/inputBox';
 import Test from '../src/test';
 import Mianshi from '../src/mianshi';
+import {HashRouter as Router,Link,Route} from 'react-router-dom';
+import Test1 from '../src/testRedux/test1';
+import Test2 from '../src/testRedux/test2';
+
+
 
 // react--context
 export const {Provider,Consumer} = React.createContext("defaultValue");
@@ -69,11 +74,17 @@ class NormalLoginForm extends Component {
     const { getFieldDecorator } = this.props.form;  
     const grandpa = this.state.grandpa;  
     return(
-    <Provider value={grandpa}>
-      <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>
+      <Provider value={grandpa}>
         <BoxInfo  num={this.state.num} reduceInsert={this.reduceInsert.bind(this)}></BoxInfo>
-      </div>
-    </Provider>)
+        <Test1></Test1>
+        <Test2></Test2>
+        {/* <Router>
+          <Link to="/test1">test1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Link>
+          <Link to="/test2">test2</Link>
+          <Route path="/test1" exact component={Test1}></Route>
+          <Route path="/test2" component={Test2}></Route>
+        </Router> */}
+      </Provider>)
     // if (this.props.user == null) {
     //   return (
     //     <Layout>
@@ -160,45 +171,3 @@ class NormalLoginForm extends Component {
 }
 
 export default Form.create()(NormalLoginForm);
-
-// import React, { Component } from 'react';
-// import { HashRouter as Router, Link, Route } from 'react-router-dom';
-// import './App.css';
-
-// const Home = () => (
-//   <div>
-//     <h2>Home</h2>
-//   </div>
-// )
-
-// const About = () => (
-//   <div>
-//     <h2>About</h2>
-//   </div>
-// )
-
-// const Product = () => (
-//   <div>
-//     <h2>Product</h2>
-//   </div>
-// )
-
-// class App extends Component {
-//   render() {
-//     return (
-//       <Router>
-//         <div className="App">
-//           <Link to="/">Home</Link>
-//           <Link to="/About">About</Link>
-//           <Link to="/Product">Product</Link>
-//           <hr/>
-//           <Route path="/" exact component={Home}></Route>
-//           <Route path="/about" component={About}></Route>
-//           <Route path="/product" component={Product}></Route>
-//         </div>
-//       </Router>
-//     );
-//   }
-// }
-
-// export default App;

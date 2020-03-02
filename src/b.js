@@ -11,7 +11,6 @@ class btest extends Component{
   }
 
   render() {
-    console.log('btestrender,renderrender');
     return (
       <div>
         bbbbbb

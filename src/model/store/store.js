@@ -16,7 +16,7 @@ export default()=>{
 	// createStore 可以接受整个应用的初始状态作为参数
 	// applyMiddleware 中间件有次序要求,使用前查下文档;比如logger就一定要放到最后,否则输出结果就不正确
 	// applyMiddleware 是redux的原生方法,作用是将所有中间组件组成一个数组,依次执行
-	let store = createStore(persisteReducer,applyMiddleware(thunk));
+	let store = createStore(persisteReducer,applyMiddleware(thunk)); // 可将thunk看做store的dispatch()方法的封装器
 	// persistor 持久性 
 	let persistor = persistStore(store);
 	return {store,persistor}

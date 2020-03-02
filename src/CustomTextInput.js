@@ -3,7 +3,6 @@ import React from 'react';
 class CustomTextInput extends React.Component {
   constructor(props) {
     super(props);
-    console.log('[[][][]',this.props);
     this.state={
       customerInfo:1
     }
@@ -14,8 +13,6 @@ class CustomTextInput extends React.Component {
   }
 
   render() {
-    
-    
     return (
       <div>
         {this.state.customerInfo}

@@ -36,7 +36,7 @@ class BoxInfo extends Component{
   }
   // 增加
   insert(){
-   this.props.reduceInsert(this.props.num+1);
+    this.props.reduceInsert(this.props.num+1);
     this.props.setNumber(10);
   }
   //
@@ -66,9 +66,6 @@ class BoxInfo extends Component{
   //在组件接收到新的props或者state但还没有render时被调用，初始化时不会被调用
   //此生命周期,不可以写setState
   componentWillUpdate (nextProps,nextState){
-    // console.log('componentWillUpdate');
-    // console.log('1componentWillUpdate',nextProps);
-    // console.log('2componentWillUpdate',nextState);
     
   }
   // 更新过程“5”
@@ -82,16 +79,11 @@ class BoxInfo extends Component{
   }
 
   componentDidMount(){
-   
     this.myRef.current.innerHTML = "练习";
   }
 
-  
-
   // 更新过程“4”
-  render() {
-    console.log('renderrender');
-    
+  render() {    
     const { numberList } = this.props;    
     const node = this.myRef.current;
 

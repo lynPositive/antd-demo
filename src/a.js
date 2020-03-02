@@ -7,7 +7,6 @@ class atest extends Component{
   }
 
   shouldComponentUpdate(nextProps,nextState){
-    console.log('测试测试，测试');
     return false;
   }
 

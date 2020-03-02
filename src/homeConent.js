@@ -12,7 +12,6 @@ import  {demof} from '../src/model/functionC';
 import Atest from '../src/a';
 import Btest from '../src/b';
 
-
  // 有状态组件
  class HomeContent extends Component {
 
@@ -29,7 +28,6 @@ import Btest from '../src/b';
 
   // 在渲染前调用，在客户端也在服务端
   componentWillMount (){
-  //  console.log('componentWillMount',this);
    this.getData();
   }
 
@@ -112,7 +110,6 @@ import Btest from '../src/b';
         <Welcomes ></Welcomes> {/* 调用函数式组件 */}
         <Atest></Atest>
         <Btest></Btest>
-
       </div>
     );
   }
