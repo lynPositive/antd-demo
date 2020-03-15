@@ -12,12 +12,10 @@ import Mianshi from '../src/mianshi';
 import {HashRouter as Router,Link,Route} from 'react-router-dom';
 import Test1 from '../src/testRedux/test1';
 import Test2 from '../src/testRedux/test2';
-
-
+import Tables from '../src/test/table';
 
 // react--context
 export const {Provider,Consumer} = React.createContext("defaultValue");
-
 
 class NormalLoginForm extends Component {
 
@@ -73,100 +71,106 @@ class NormalLoginForm extends Component {
     const { Header, Content, Footer } = Layout;
     const { getFieldDecorator } = this.props.form;  
     const grandpa = this.state.grandpa;  
-    return(
-      <Provider value={grandpa}>
-        <BoxInfo  num={this.state.num} reduceInsert={this.reduceInsert.bind(this)}></BoxInfo>
-        <Test1></Test1>
-        <Test2></Test2>
-        {/* <Router>
-          <Link to="/test1">test1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Link>
-          <Link to="/test2">test2</Link>
-          <Route path="/test1" exact component={Test1}></Route>
-          <Route path="/test2" component={Test2}></Route>
-        </Router> */}
-      </Provider>)
-    // if (this.props.user == null) {
-    //   return (
-    //     <Layout>
-    //       <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
-    //         <div className="logo" />
-    //         <Menu
-    //           theme="dark"
-    //           mode="horizontal"
-    //           defaultSelectedKeys={['1']}
-    //           style={{ lineHeight: '64px' }}
-    //           onClick={this.menuSelect}
-    //         >
-    //           <Menu.Item key="1">首页</Menu.Item>
-    //           <Menu.Item key="2">装车单</Menu.Item>
-    //           <Menu.Item key="3">我的</Menu.Item>
-    //           {/* <Menu.Item key="4">[{this.props.user.user.phone}/{this.props.user.user.name}]</Menu.Item> */}
-    //           <Menu.Item key="5">退出</Menu.Item>
-    //         </Menu>
-    //       </Header>
-    //       <Content style={{ padding: '0 50px', marginTop: 64 }}>
-    //         <Breadcrumb style={{ margin: '20px 0px' }}>
-    //           <Breadcrumb.Item></Breadcrumb.Item>
-    //           <Breadcrumb.Item></Breadcrumb.Item>
-    //           <Breadcrumb.Item></Breadcrumb.Item>
-    //           <Breadcrumb.Item></Breadcrumb.Item>
-    //         </Breadcrumb>
-    //         <Provider value={grandpa}>
-    //         <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>
-    //           {
-    //             this.state.selectKey==1?
-    //             <BoxInfo {...this.state.grandpa} num={this.state.num} reduceInsert={this.reduceInsert.bind(this)}></BoxInfo>
-    //              :
-    //             // <HomeContent token={this.props.user.token} a={1} clickDemo={this.handleClick.bind(this)}/>     
-    //             // <Test></Test>     
-    //             <Mianshi ></Mianshi>     
-    //           }
-    //         </div>
-    //         </Provider>
-    //       </Content>
-    //       {/* <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer> */}
-    //     </Layout>
-    //   );
-    // } else {
-    //   return (
-    //     <Form onSubmit={this.handleSubmit} className="login-form">
-    //       <Form.Item>
-    //         {getFieldDecorator('username', {
-    //           rules: [{ required: true, message: 'Please input your username!' }],
-    //         })(
-    //           <Input
-    //             prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-    //             placeholder="Username"
-    //           />,
-    //         )}
-    //       </Form.Item>
-    //       <Form.Item>
-    //         {getFieldDecorator('password', {
-    //           rules: [{ required: true, message: 'Please input your Password!' }],
-    //         })(
-    //           <Input
-    //             prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-    //             type="password"
-    //             placeholder="Password"
-    //           />,
-    //         )}
-    //       </Form.Item>
-    //       <Form.Item>
-    //         {getFieldDecorator('remember', {
-    //           valuePropName: 'checked',
-    //           initialValue: true,
-    //         })(<Checkbox>Remember me</Checkbox>)}
-    //         <a className="login-form-forgot" href="">
-    //           Forgot password
-    //         </a>
-    //         <Button type="primary" htmlType="submit" className="login-form-button">
-    //           Log in
-    //         </Button>
-    //         Or <a href="">register now!</a>
-    //       </Form.Item>
-    //     </Form>
-    //   );
-    // }
+    // return(
+    //   <Provider value={grandpa}>
+    //     <BoxInfo  num={this.state.num} reduceInsert={this.reduceInsert.bind(this)}></BoxInfo>
+    //     <Test1></Test1>
+    //     <Test2></Test2>
+    //     {/* <Router>
+    //       <Link to="/test1">test1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Link>
+    //       <Link to="/test2">test2</Link>
+    //       <Route path="/test1" exact component={Test1}></Route>
+    //       <Route path="/test2" component={Test2}></Route>
+    //     </Router> */}
+    //   </Provider>)
+    if (this.props.user != null) {
+      return (
+        <Layout>
+          <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+            <div className="logo" />
+            <Menu
+              theme="dark"
+              mode="horizontal"
+              defaultSelectedKeys={['1']}
+              style={{ lineHeight: '64px' }}
+              onClick={this.menuSelect}
+            >
+              <Menu.Item key="1">首页</Menu.Item>
+              <Menu.Item key="2">装车单</Menu.Item>
+              <Menu.Item key="3">我的</Menu.Item>
+              <Menu.Item key="4">练习</Menu.Item>
+              {/* <Menu.Item key="4">[{this.props.user.user.phone}/{this.props.user.user.name}]</Menu.Item> */}
+              <Menu.Item key="5">退出</Menu.Item>
+            </Menu>
+          </Header>
+          <Content style={{ padding: '0 50px', marginTop: 64 }}>
+            <Breadcrumb style={{ margin: '20px 0px' }}>
+              <Breadcrumb.Item></Breadcrumb.Item>
+              <Breadcrumb.Item></Breadcrumb.Item>
+              <Breadcrumb.Item></Breadcrumb.Item>
+              <Breadcrumb.Item></Breadcrumb.Item>
+              <Breadcrumb.Item></Breadcrumb.Item>
+            </Breadcrumb>
+            <Provider value={grandpa}>
+            <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>
+              {
+                this.state.selectKey==1?
+                <BoxInfo {...this.state.grandpa} num={this.state.num} reduceInsert={this.reduceInsert.bind(this)}></BoxInfo>
+                 :
+                 this.state.selectKey==2?
+                //  <HomeContent token={this.props.user.token} a={1} clickDemo={this.handleClick.bind(this)}/>     
+                //
+                <Mianshi ></Mianshi>  
+                :   
+                this.state.selectKey==4?
+                <Tables></Tables>
+                :
+                <Test></Test>  // 高阶组件的练习   
+                
+              }
+            </div>
+            </Provider>
+          </Content>
+          {/* <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer> */}
+        </Layout>
+      );
+    } else {
+      return (
+        <Form onSubmit={this.handleSubmit} className="login-form">
+          <Form.Item>
+            {getFieldDecorator('username', {
+              rules: [{ required: true, message: 'Please input your username!' }],
+            })(
+              <Input
+                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                placeholder="Username"
+              />,
+            )}
+          </Form.Item>
+          <Form.Item>
+            {getFieldDecorator('password', {
+              rules: [{ required: true, message: 'Please input your Password!' }],
+            })(
+              <Input
+                prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                type="password"
+                placeholder="Password"
+              />,
+            )}
+          </Form.Item>
+          <Form.Item>
+            {/* {getFieldDecorator('remember', {
+              valuePropName: 'checked',
+              initialValue: true,
+            })}
+           */}
+            <Button type="primary" htmlType="submit" className="login-form-button">
+              Log in
+            </Button>
+          </Form.Item>
+        </Form>
+      );
+    }
   }
 }
 

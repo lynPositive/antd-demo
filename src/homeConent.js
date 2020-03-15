@@ -9,8 +9,6 @@ import CommentListWithSubscription from './gj';
 import Welcome from './test';
 import ReactDom from 'react-dom';
 import  {demof} from '../src/model/functionC';
-import Atest from '../src/a';
-import Btest from '../src/b';
 
  // 有状态组件
  class HomeContent extends Component {
@@ -106,10 +104,8 @@ import Btest from '../src/b';
         <span id="tips">span</span>
         {/* <span>{demof}</span> */}
         <div onClick={this.handleClick}>[][][][][][][]</div>
-        <div onClick={this.Aclick}>;;;;;;{this.state.atest}</div>
+        <div onClick={this.Aclick}>{this.state.atest}</div>
         <Welcomes ></Welcomes> {/* 调用函数式组件 */}
-        <Atest></Atest>
-        <Btest></Btest>
       </div>
     );
   }

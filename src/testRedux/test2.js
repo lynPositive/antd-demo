@@ -23,7 +23,6 @@ class Test2 extends Component{
   }
 
   render(){
-    console.log('test2render');
     return(
       <div>
         {this.props.numTest1}
